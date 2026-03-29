@@ -80,8 +80,8 @@ Harry Potter, Spider-Man, Jurassic World, Star Trek, and many more blockbusters.
 
 ### Step 1: Clone Repository
 ```bash
-git clone <repository-url>
-cd "c:\Movie recomendation"
+git clone https://github.com/kanakasudheer/Movie-Recommendation-System
+cd Movie recomendation
 ```
 
 ### Step 2: Install Dependencies
@@ -96,10 +96,10 @@ pip install -r requirements.txt
 
 ### Step 4: Run Application
 ```bash
-streamlit run app.py
+streamlit run app.py or python -m streamlit run app.py
 ```
 
-The application will open at `http://localhost:8501`
+
 
 ## 🎮 User Guide
 
@@ -266,7 +266,6 @@ For issues and suggestions, please create an issue in the repository.
 
 **Developed with ❤️ using cutting-edge AI technologies and modern web development practices.**
 
-*Version 2.0 - AI-Powered Movie Recommendation System*
 
 
 
