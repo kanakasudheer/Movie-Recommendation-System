@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import os
+from dotenv import load_dotenv
 from recommender import (
     load_data, clean_data, create_similarity, get_recommendations, hybrid_recommendations
 )
@@ -11,8 +13,16 @@ import time
 import random
 import google.generativeai as genai
 
+# Load environment variables
+load_dotenv()
+
 # Initialize Gemini AI
-GEMINI_API_KEY = "AIzaSyAgLkdBzGflleYl5hnn-V1RpoydIbU0pAg"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+if not GEMINI_API_KEY:
+    st.error("❌ GEMINI_API_KEY not found in environment variables!")
+    st.info("Please create a .env file with your Gemini API key. See .env.example for template.")
+    st.stop()
+
 genai.configure(api_key=GEMINI_API_KEY)
 gemini_model = genai.GenerativeModel('gemini-2.5-flash')
 
