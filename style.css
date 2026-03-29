@@ -1,0 +1,470 @@
+/* Import modern fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* Global Styles */
+.stApp {
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Hide default Streamlit elements */
+.stDeployButton {
+    display: none;
+}
+
+/* Custom CSS for animations and effects */
+.main-header {
+    text-align: center;
+    padding: 2rem 0;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideDown 0.8s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.movie-title {
+    font-size: 3rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradient 3s ease infinite;
+    margin-bottom: 0.5rem !important;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.subtitle {
+    font-size: 1.2rem !important;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-weight: 400 !important;
+}
+
+/* Sidebar enhancements */
+.css-1d391kg {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.sidebar-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white;
+}
+
+/* Movie card styles */
+.movie-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.movie-card:hover::before {
+    left: 100%;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.movie-poster-container {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.movie-poster {
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    max-width: 100%;
+    height: auto;
+}
+
+.movie-poster:hover {
+    transform: scale(1.05);
+}
+
+.movie-info h3 {
+    color: #ffffff !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 0.5rem !important;
+}
+
+.movie-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.7) !important;
+    font-size: 0.9rem !important;
+}
+
+.rating {
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    color: white !important;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-weight: 600 !important;
+    display: inline-block;
+}
+
+/* Button styles */
+.stButton > button {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    border: none !important;
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 0.8rem 2rem !important;
+    border-radius: 50px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5) !important;
+    background: linear-gradient(45deg, #764ba2, #667eea) !important;
+}
+
+/* Search box styles */
+.stTextInput > div > div > input {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 50px !important;
+    padding: 1rem 1.5rem !important;
+    color: white !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.stTextInput > div > div > input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Select box styles */
+.stSelectbox > div > div > select {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 10px !important;
+    color: white !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Slider styles */
+.stSlider > div > div > div {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+}
+
+/* Tabs styles */
+.stTabs [data-baseweb="tab-list"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px !important;
+    padding: 0.5rem !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+    border-radius: 10px !important;
+    padding: 0.8rem 1.5rem !important;
+    font-weight: 600 !important;
+    transition: all 0.3s ease !important;
+}
+
+.stTabs [aria-selected="true"] {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+    color: white !important;
+}
+
+/* Success and error messages */
+.stSuccess {
+    background: linear-gradient(45deg, #00b09b, #96c93d) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+}
+
+.stError {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+}
+
+.stInfo {
+    background: linear-gradient(45deg, #4facfe, #00f2fe) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+}
+
+/* Warning messages */
+.stWarning {
+    background: linear-gradient(45deg, #feca57, #ff9ff3) !important;
+    border-radius: 10px !important;
+    padding: 1rem !important;
+}
+
+/* Metrics styles */
+.stMetric {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px !important;
+    padding: 1.5rem !important;
+    backdrop-filter: blur(10px) !important;
+    text-align: center !important;
+    transition: all 0.3s ease !important;
+}
+
+.stMetric:hover {
+    transform: translateY(-3px) !important;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Progress bar */
+.stProgress > div > div > div > div {
+    background: linear-gradient(45deg, #667eea, #764ba2) !important;
+}
+
+/* Expander styles */
+.stExpander {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Dataframe styles */
+.stDataFrame {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Chart styles */
+.stPlotlyChart {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 15px !important;
+    padding: 1rem !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Loading animation */
+.loading-spinner {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #667eea;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Floating animation */
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Pulse animation */
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Glow effect */
+.glow {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5) !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .movie-title {
+        font-size: 2rem !important;
+    }
+    
+    .movie-card {
+        padding: 1rem;
+    }
+    
+    .main-header {
+        padding: 1rem;
+    }
+}
+
+/* Particle background effect */
+.particle-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(100vh) translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(100px);
+        opacity: 0;
+    }
+}
+
+/* Rating stars */
+.rating-stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+}
+
+/* Genre tags */
+.genre-tag {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 0.2rem;
+    transition: all 0.3s ease;
+}
+
+.genre-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Movie grid layout */
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+/* Enhanced sidebar items */
+.sidebar-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.sidebar-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+/* Custom header animation */
+.header-animation {
+    position: relative;
+    overflow: hidden;
+}
+
+.header-animation::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
