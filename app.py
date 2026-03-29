@@ -18,9 +18,37 @@ load_dotenv()
 
 # Initialize Gemini AI
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+# Fallback: try to read .env file manually if dotenv doesn't work
+if not GEMINI_API_KEY and os.path.exists('.env'):
+    try:
+        with open('.env', 'r', encoding='utf-8-sig') as f:  # utf-8-sig handles BOM
+            for line in f:
+                line = line.strip()
+                if line.startswith('GEMINI_API_KEY='):
+                    GEMINI_API_KEY = line.split('=', 1)[1].strip()
+                    os.environ['GEMINI_API_KEY'] = GEMINI_API_KEY
+                    break
+    except Exception as e:
+        if st.session_state.get('debug_mode', False):
+            st.write("Debug - Error reading .env:", str(e))
+
+# Debug information
+if st.session_state.get('debug_mode', False):
+    st.write("Debug - Current directory:", os.getcwd())
+    st.write("Debug - .env file exists:", os.path.exists('.env'))
+    st.write("Debug - Load result:", load_dotenv())
+    st.write("Debug - API Key in env:", 'GEMINI_API_KEY' in os.environ)
+    if GEMINI_API_KEY:
+        st.write("Debug - API Key length:", len(GEMINI_API_KEY))
+
 if not GEMINI_API_KEY:
     st.error("❌ GEMINI_API_KEY not found in environment variables!")
     st.info("Please create a .env file with your Gemini API key. See .env.example for template.")
+    st.code("""
+# Create .env file with:
+GEMINI_API_KEY=your_actual_api_key_here
+    """)
     st.stop()
 
 genai.configure(api_key=GEMINI_API_KEY)
