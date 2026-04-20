@@ -1,6 +1,7 @@
 # 🎬 CineMatch AI - Advanced Movie Recommendation System
 
 A sophisticated, AI-powered movie recommendation platform with beautiful animations, personalized recommendations, and intelligent features built with Streamlit and Google Gemini AI.
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/f8dc64d9-9d98-4125-bbb4-447a95a16b1d" />
 
 ## ✨ Features
 
